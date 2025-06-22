@@ -1,0 +1,10 @@
+ecommerce/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+venv/
+
+*.sqlite3
+
+.env
