@@ -4,11 +4,10 @@
 
 from typing import Dict, Any, List
 import asyncio
-from langchain.agents import AgentExecutor, create_openai_tools_agent
+from langchain.agents import AgentExecutor, create_openapi_agent
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
-
-from ..tools.fitness_apis import ExerciseDBTool, WgerTool
+from ..tools.fitness_apis import ExerciseDBTool
 from ..tools.calculators import WorkoutCalculatorTool
 
 class FitnessAgent:
@@ -17,7 +16,6 @@ class FitnessAgent:
         
         self.tools = [
             ExerciseDBTool(),
-            WgerTool(),
             WorkoutCalculatorTool()
         ]
         
@@ -39,7 +37,7 @@ class FitnessAgent:
             ("assistant", "{agent_scratchpad}")
         ])
         
-        self.agent = create_openai_tools_agent(self.llm, self.tools, self.prompt)
+        self.agent = create_openapi_agent(self.llm, self.tools, self.prompt)
         self.executor = AgentExecutor(agent=self.agent, tools=self.tools, verbose=True)
 
     async def process(self, message: str, user_profile: Dict, context: List[Dict]) -> Dict[str, Any]:

@@ -8,7 +8,6 @@ from langchain.agents import AgentExecutor, create_openai_tools_agent
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.tools import BaseTool
-
 from ..tools.nutrition_apis import NutritionAPITool, USDAFoodTool, SpoonacularTool
 from ..tools.calculators import MacroCalculatorTool, CalorieCalculatorTool
 

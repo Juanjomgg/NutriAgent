@@ -6,7 +6,6 @@ from typing import Dict, Any, Optional
 import asyncio
 import logging
 from datetime import datetime
-
 from .nutrition_agent import NutritionAgent
 from .fitness_agent import FitnessAgent
 from .research_agent import ResearchAgent
