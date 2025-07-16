@@ -9,7 +9,7 @@ from langchain.agents import AgentExecutor, create_openapi_agent
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from ..tools.fitness_apis import ExerciseDBTool
-from ..tools.calculators import WorkoutCalculatorTool, CalorieCalculatorTool, MacroCalculatorTool
+from ..tools.calculators import WorkoutCalculatorTool
 
 class FitnessAgent:
     def __init__(self):
@@ -18,8 +18,6 @@ class FitnessAgent:
         self.tools = [
             ExerciseDBTool(),
             WorkoutCalculatorTool(),
-            CalorieCalculatorTool(),
-            MacroCalculatorTool()
         ]
         
         self.prompt = ChatPromptTemplate.from_messages([

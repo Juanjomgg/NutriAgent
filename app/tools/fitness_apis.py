@@ -82,7 +82,7 @@ class ExerciseDBTool:
                             "data": self.exercises_list,
                         }
                     else:
-                        raise httpx.HTTPException(
+                        raise Exception(
                             status_code=response.status_code,
                             detail=f"Error en ExerciseDB API: {response.status_code}"
                         )
